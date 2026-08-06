@@ -1,0 +1,211 @@
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+img {
+  display: block;
+  width: 100%;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h2,
+h3 {
+  scroll-margin: 100px;
+}
+.header {
+  width: 100%;
+  background-color: #347c36;
+  padding: 10px;
+  /* position: sticky;  preferivel usar position fixed para evitar que o menu desapareça quando o usuário rolar a página até o final */
+  position: fixed;
+  top: 0;
+  box-shadow: 0 0 6px 3px rgba(51, 51, 51, 0.5);
+}
+.header .container {
+  max-width: 1300px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.header .logo {
+  width: 100%;
+  max-width: 200px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.header nav {
+  display: flex;
+}
+.header .menu {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  position: relative;
+  list-style: none;
+}
+.header .menu .item {
+  position: relative;
+  width: 110px;
+  display: flex;
+  align-items: center;
+}
+
+.header .menu .item > a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.6rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 8px 10px;
+  transition: color 0.5s ease;
+}
+
+.header .menu .item:hover > a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.header .menu .item::after {
+  content: "";
+  background: url(./chevron.svg);
+  background-size: 10px;
+  background-position: center;
+  width: 10px;
+  height: 10px;
+  transform: rotate(0deg);
+  transition: transform 0.5s ease;
+}
+
+.header .menu .item:hover::after {
+  transform: rotate(90deg);
+}
+
+.header .submenu {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  width: 110px;
+  position: absolute;
+  top: 40px;
+  /* left: 0; */
+  list-style: none;
+  border-radius: 5px;
+  box-shadow: 0 0 3px 1px rgba(83, 83, 83, 0.407);
+  margin: 0;
+  padding: 5px;
+  transition: all 0.5s ease;
+}
+
+.header .menu .item:hover .submenu {
+  /* add item-hover*/
+  opacity: 1;
+  background-color: #f2f2f2;
+}
+.header .submenu .subitem > a {
+  display: block;
+  text-decoration: none;
+  text-align: left;
+  color: #347c36;
+  font-size: 1.5rem;
+  padding: 8px 10px;
+  border-radius: 5px;
+  transition: all 0.5s ease;
+}
+
+.header .submenu .subitem:hover > a {
+  background-color: #d6d6d6;
+}
+
+main .container {
+  max-width: 1300px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 60px;
+}
+
+footer {
+  width: 100%;
+  background-color: #347c36;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+/* Pseudo Elementos */
+
+p::first-line {
+  font-weight: bold;
+  color: #101361;
+}
+
+p::first-letter {
+  font-size: 3rem;
+  color: #e20f40;
+}
+
+::selection {
+  background-color: #347c36;
+  color: #fff;
+}
+
+.container-cursos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  justify-content: center;
+}
+
+.container-cursos .box {
+  padding: 10px;
+}
+
+.container-cursos .box p {
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  .header .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .header .menu {
+    flex-direction: row;
+    gap: 20px;
+  }
+  .header .menu .item {
+    width: 100%;
+    justify-content: center;
+  }
+  .header .menu .item a,
+  .header .menu .subitem a {
+    font-size: 1.4rem;
+  }
+  .header .submenu {
+    z-index: 99;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .container-cursos {
+    grid-template-columns: 1fr;
+  }
+}

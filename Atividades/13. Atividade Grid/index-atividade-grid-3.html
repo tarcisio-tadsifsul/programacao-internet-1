@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			body{
+				box-sizing: border-box;
+				padding: 100px 0;
+			}
+			p{
+				text-align: center;
+				font-size: 1.125rem;
+				font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			}
+			.grid{			
+				max-width: 800px;
+				margin: 0 auto;
+				display: grid;
+				grid-template-areas: 
+					"header header header header header header"
+					"nav main main main aside aside"
+					"nav footer footer footer footer footer";
+				font-size: 1.5rem;
+				text-align: center;
+				background-color: #cce6cc;
+			}
+			.item{
+				padding: 20px;		
+				border:6px solid green;	
+			}
+			.header,.main,.aside{
+				border-bottom: none;
+			}
+			.nav,.main{
+				border-right: none;
+			}
+			.header{
+				grid-area: header;
+			}
+			.nav{
+				grid-area: nav;
+			}
+			.main{
+				grid-area: main;
+			}
+			.aside{
+				grid-area: aside;
+			}
+			.footer{
+				grid-area: footer;
+			}
+
+			@media (max-width: 500px){
+				.grid{
+					grid-template-areas: "header" "nav" "main" "aside" "footer";
+				}
+				.nav, .main{
+					border-right: 6px solid green;
+					border-bottom: none;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<p>Layout Grid de 6 colunas com 3 linhas:</p>
+		<div class="grid">
+			<header class="item header">Header</header>
+			<nav class="item nav">Nav</nav>
+			<main class="item main">Main</main>
+			<aside class="item aside">Aside</aside>
+			<footer class="item footer">Footer</footer>
+		</div>
+	</body>
+</html>

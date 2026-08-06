@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atividade CSS</title>
+    <style>
+      body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-size: 1.125rem;
+        background-image: url("./img-background.png");
+        background-size: 500px;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: 90% 50%;
+      }
+      .principal {
+        padding: 60px;
+      }
+      .imagem {
+        display: block;
+        max-width: 90vw;
+      }
+      a {
+        display: block;
+        padding: 4px;
+      }
+      h2,
+      p > i {
+        background-color: #fff;
+        width: max-content;
+      }
+      p {
+        background-color: #fff;
+      }
+      li {
+        padding: 4px;
+      }
+      .list-style-image {
+        list-style-image: url("./arrow.jpg");
+      }
+      .list-style-position.in {
+        list-style-position: inside;
+      }
+      .list-style-position.out {
+        list-style-position: outside;
+      }
+      .list-style-type.circle {
+        list-style-type: circle;
+      }
+      .list-style-type.square {
+        list-style-type: square;
+      }
+      .list-style-type.upp-rom {
+        list-style-type: upper-roman;
+      }
+      .list-style-type.low-alp {
+        list-style-type: lower-alpha;
+      }
+      .list-style-type.none {
+        list-style-type: none;
+      }
+
+      a.links {
+        width: max-content;
+        padding: 3px 10px;
+        margin-bottom: 5px;
+      }
+
+      a.link {
+        color: #0000ff;
+        background-color: aqua;
+      }
+      a.visited {
+        color: #800080;
+        background-color: #ffe4c4;
+      }
+      a.visited:visited {
+        color: #ffe4c4;
+        background-color: #800080;
+      }
+      a.hover {
+        color: #008000;
+        background-color: rgb(240, 255, 198);
+      }
+      a.hover:hover {
+        color: #02cf02;
+      }
+      a.active {
+        color: #000;
+        background-color: yellow;
+      }
+      a.active:active {
+        color: #ffff00;
+        background-color: #000;
+      }
+      .fonte {
+        display: block;
+        font-size: 0.8rem;
+        margin: 10px 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="principal">
+      <h1>
+        Programação Web I – 2/04<br />
+        Exercícios: Atividade CSS
+      </h1>
+      <h2>1) Teste as propriedades CSS para lista (ul e ol):</h2>
+      <ul class="">
+        <li class="list-style-image">list-style-image</li>
+        <li class="list-style-position in">list-style-position: inside</li>
+        <li class="list-style-position out">list-style-position: outside</li>
+        <li class="list-style-type circle">list-style-type: circle</li>
+        <li class="list-style-type square">list-style-type: square</li>
+      </ul>
+      <ol class="list-style-type upp-rom">
+        <li>list-style-type: upper-roman</li>
+        <li>list-style-type: upper-roman</li>
+        <li>list-style-type: upper-roman</li>
+      </ol>
+      <ol class="list-style-type low-alp">
+        <li>list-style-type: lower-alpha</li>
+        <li>list-style-type: lower-alpha</li>
+        <li>list-style-type: lower-alpha</li>
+      </ol>
+      <ol class="list-style-type none">
+        <li>list-style-type: none</li>
+        <li>list-style-type: none</li>
+        <li>list-style-type: none</li>
+      </ol>
+
+      <p>Descreva o que cada um faz:</p>
+      <p>
+        <i
+          >A propriedade list-style-image altera o marcado da lista pela imagem
+          setada no valor da propriedade. Pode ser uma imagem ou um
+          linear-gradiente</i
+        >
+      </p>
+      <p>
+        <i
+          >A propriedade list-style-position altera a posição do item da lista
+          para dentro (inside) ou fora (outside).</i
+        >
+      </p>
+      <p>
+        <i
+          >A propriedade list-style-type altera o marcador dos itens da lista
+          para diferentes tipos como disc (padrão) circle, square, decimal,
+          georgian, lower-alpha (alfabeto minusculas), numeros romanos, entre
+          outros. Enquanto lista não ordenada (ul) apresentam marcadores, as
+          lista ordenadas (ol) mostram números como padrão</i
+        >
+      </p>
+
+      Tire um print do resultado:
+
+      <a href="./print.html"
+        ><img
+          class="imagem"
+          src="./print-list-style.png"
+          alt="print screen da atividade"
+      /></a>
+
+      <h2>Os quatro estados dos Links são:</h2>
+      <a href="#" class="links link">a:link</a>
+      <a href="#" class="links visited">a:visited </a>
+      <a href="#" class="links hover">a:hover </a>
+      <a href="#" class="links active">a:active </a>
+
+      <h2>Teste as propriedades de background</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas sint
+        eveniet ab sit repudiandae eaque expedita! Voluptatum, quas odit ad
+        atque voluptatibus facilis, nobis quisquam magnam quos nemo officiis
+        perspiciatis?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias,
+        sapiente praesentium. Amet ab nobis natus, omnis fugiat dolores nostrum
+        nulla distinctio rem, facere quisquam doloremque eaque, provident
+        dignissimos? Labore, perferendis?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde asperiores
+        reiciendis voluptas animi, commodi minima error. Voluptatem odio maiores
+        repellendus adipisci hic laudantium alias labore numquam sint? Fuga,
+        veniam nisi!
+      </p>
+
+      <h2>4) Pesquise o que é efeito parallax?</h2>
+      <p>
+        <i
+          >Rolagem paralaxe é uma técnica em computação gráfica em que as
+          imagens de plano de fundo movem-se mais lentamente que as imagens em
+          primeiro plano, criando uma ilusão de profundidade em uma cena 2D e
+          aumentando a sensação de imersão na experiência virtual.<a
+            class="fonte"
+            href="https://news.google.com/newspapers?id=drgTAAAAIBAJ&sjid=S5ADAAAAIBAJ&pg=3478,303305&dq=parallax+scrolling"
+            >Fonte: New Straits Times Malaysia. - Cap. O'Rourke to the rescue</a
+          ></i
+        >
+      </p>
+      <img src="./parallax.gif" alt="efeito paralaxe" />
+
+      <h2>5)Pesquise sobre a utilidade desse efeito no CSS.</h2>
+      <p>
+        <i
+          >No CSS, o efeito parallax serve principalmente para criar
+          profundidade visual e hierarquia de camadas em uma página 2D
+          proporcionando uma narrativa visual, separar seções, estética imersiva
+          entre outras utilidades.
+        </i>
+      </p>
+    </main>
+  </body>
+</html>

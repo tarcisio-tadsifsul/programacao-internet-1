@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade CSS Flexbox</title>
+    <link rel="stylesheet" href="modern-reset.css">
+    <style>
+        body *{
+            
+        }
+        .body{  
+            display: flex;         
+            justify-content: center;
+            background-color: #F8FAFC;
+            font-family:'Gill Sans', 'Gill Sans MT', sans-serif
+        }
+        .principal{
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            width: 100%;
+            background-color: #FFFFFF;
+            padding: 20px;
+        }
+        ul{
+            list-style-type: none;
+            margin: 0;
+            padding: 10px;
+        }
+        .header{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #1E293B;
+            position: sticky;
+            top:0;
+        }
+        .logo{
+            background-color: #fff;
+            padding: 10px 30px;
+            max-width: 160px;
+            width: 100%;
+            text-align: center;
+            font-family: sans-serif;
+            font-size: 20px;
+            font-weight: 900;
+            border-radius: 5px;
+        }
+        .menu-principal ul{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+        .menu-principal ul li{
+            background-color: #3B82F6;
+            color:#FFFFFF;
+            padding: 5px 16px;
+            border-radius: 5px;
+            transition: background-color .5s ease;
+        }
+        .menu-principal ul li:hover{
+            background-color: #2f6ac9;
+            cursor: pointer;
+        }  
+        
+        .menu-lateral{
+            background-color: #6304df28;            
+            flex-basis: 200px;
+            gap:20px;
+            padding: 20px 10px;
+        }
+        .menu-lateral ul{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .menu-lateral ul li{
+            background-color: #b37ff781;
+            color:#6700eef3;
+            padding: 5px 16px;
+            border-radius: 5px;
+            transition: background-color .5s ease;
+        }
+        .menu-lateral ul li:hover{
+            background-color: #b37ff7c2;
+            cursor: pointer;
+        }  
+    
+        .conteudo{
+            height: 100vh;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            flex-basis: auto;
+            flex-grow: 2;
+            padding: 20px;
+            background-color: rgb(194, 251, 255);
+        }
+        .rodape{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+            background-color: #09ec4d;
+        }
+
+        @media (max-width:767px){
+            .principal{
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="body">    
+    <div class="principal">
+        <header class="header">
+            <div class="logo">Logo</div>
+            <nav class="menu-principal">
+                <ul>
+                    <li>Menu 1</li>
+                    <li>Menu 2</li>
+                    <li>Menu 3</li>
+                    <li>Menu 4</li>
+                </ul>
+            </nav>
+        </header>
+        <aside class="menu-lateral"><nav><ul>
+            <li>Menu Lateral 1</li>
+            <li>Menu Lateral 2</li>
+            <li>Menu Lateral 3</li>
+            <li>Menu Lateral 4</li>
+            <li>Menu Lateral 5</li>
+        </ul></nav></aside>
+        <main class="conteudo">Conteudo Principal</main>
+        <footer class="rodape">Footer</footer>
+    </div>
+    <script>
+        (function(){
+            let botoes = document.querySelectorAll("li");
+            botoes.forEach((btn) => {
+                btn.addEventListener('click', (btn) => {
+                    // alert('Click!');
+                    // btn.target.classList.add("d-none");
+                    console.log(btn)
+                });
+            })
+            console.log(botoes);
+        })();
+    </script>
+</body>
+</html>
