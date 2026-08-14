@@ -10,24 +10,24 @@
  * 
  */
 
-let media = prompt("Média: ");
-console.log(typeof media)
-//let media = parseFloat(prompt("Média: "));
-if (media.includes(",")){
-    media = media.replace(',','.');
-}
-media = parseFloat(media);
-console.log(typeof media);
+// let media = prompt("Média: ");
+// console.log(typeof media)
+// //let media = parseFloat(prompt("Média: "));
+// if (media.includes(",")){
+//     media = media.replace(',','.');
+// }
+// media = parseFloat(media);
+// console.log(typeof media);
 
-if (media >= 9 && media <= 10){
-    window.alert(`Conceito A`);
-} else if(media >= 7.5 && media < 9){
-    window.alert(`Conceito B`);
-} else if(media >= 6 && media < 7.5){
-    window.alert(`Conceito C`);
-} else {
-    window.alert(`Conceito D`);
-}
+// if (media >= 9 && media <= 10){
+//     window.alert(`Conceito A`);
+// } else if(media >= 7.5 && media < 9){
+//     window.alert(`Conceito B`);
+// } else if(media >= 6 && media < 7.5){
+//     window.alert(`Conceito C`);
+// } else {
+//     window.alert(`Conceito D`);
+// }
 
 
 /**
