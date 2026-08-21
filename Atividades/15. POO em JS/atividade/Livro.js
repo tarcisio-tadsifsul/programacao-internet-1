@@ -10,7 +10,7 @@ export class Livro extends Produto {
   constructor(titulo, preco, estoque, autor, numeroPaginas, editora) {
     // Atributos da classe pai
     super(titulo, preco, estoque);
-    // Sem # para que this.titulo invoque o setter!
+    // Sem # para que this.autor invoque o setter!
     this.autor = autor;
     this.numeroPaginas = numeroPaginas;
     this.editora = editora;
@@ -32,7 +32,7 @@ export class Livro extends Produto {
     this.#autor = novoAutor;
   }
   set numeroPaginas(novoNumeroPaginas) {
-    this.#numeroPaginas = novoNumeroPaginas;
+    if (novoNumeroPaginas > 0) this.#numeroPaginas = novoNumeroPaginas;
   }
   set editora(novaEditora) {
     this.#editora = novaEditora;

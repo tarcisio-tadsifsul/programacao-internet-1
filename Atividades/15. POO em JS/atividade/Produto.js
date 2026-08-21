@@ -15,29 +15,33 @@ export class Produto {
   get titulo() {
     return this.#titulo;
   }
+
   get preco() {
     return this.#preco;
   }
+
   get estoque() {
     return this.#estoque;
   }
 
   // Setters
   set titulo(novoTitulo) {
-    if (novoTitulo.length <= 0 || novoTitulo === "") {
+    if (!novoTitulo) {
       this.#titulo = "Sem Titulo";
     } else {
       this.#titulo = novoTitulo;
     }
   }
+
   set preco(novoPreco) {
     if (novoPreco < 0) {
       console.log("Preco deve ser maior que 0!");
-      this.#preco = 0;
+      this.#preco <= 0 ? this.#preco = 0 : null;
     } else {
       this.#preco = novoPreco;
     }
   }
+
   set estoque(novoEstoque) {
     if (novoEstoque < 0) {
       console.log("Estoque deve ser maior que 0!");

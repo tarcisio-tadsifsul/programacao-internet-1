@@ -12,4 +12,8 @@ let livro = new Livro(
   900,
   "Editora Programes",
 );
-console.log(livro.exibirDados());
+console.log(typeof livro, livro.exibirDados());
+
+produto.preco = -100
+
+console.log(produto.exibirDados());
