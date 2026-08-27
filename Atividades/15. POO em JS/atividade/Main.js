@@ -17,3 +17,14 @@ console.log(typeof livro, livro.exibirDados());
 produto.preco = -100
 
 console.log(produto.exibirDados());
+
+function* geradorDeId() {
+  let id = 1;
+  while(true) {
+    yield id++; // Pausa a função aqui e entrega o valor
+  }
+}
+
+const criarId = geradorDeId();
+console.log(criarId.next().value); // 1
+console.log(criarId.next().value); // 2 (a função continuou de onde parou!)
