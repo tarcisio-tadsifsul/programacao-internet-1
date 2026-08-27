@@ -2,6 +2,21 @@
 
 Este documento serve como um guia prático dos principais conceitos introduzidos no ecossistema do JavaScript moderno, essenciais para o desenvolvimento de aplicações robustas, limpas e performáticas.
 
+## Resumo das Convenções de Nomenclatura em JS
+
+- **Camel Case (camelCase)**
+Usado para *variáveis, funções, métodos e propriedades*.
+A primeira palavra começa com letra minúscula e as seguintes começam com letra maiúscula. (ex: buscarDadosDoUsuario).
+
+- **Pascal Case (PascalCase)**
+Reservado estritamente para *Classes e Componentes* (ex: ContaBancaria).
+
+- **Snake Case em Maiúsculo (UPPER_SNAKE_CASE)**
+Usado para *Constantes Globais ou de configuração* cujos valores nunca mudam. (ex: URL_BASE_API).
+
+- **Kebab Case (kebab-case)**
+O padrão mais comum e recomendado para *nomenclatura de arquivos de script e componentes* (ex: validador-senha.js).
+
 ## Declaração de Variáveis: let e const
 
 No JavaScript moderno, o uso de `var` foi descontinuado devido ao seu escopo de função e comportamento de *hoisting* (elevação), que frequentemente causava bugs. Em seu lugar, utilizamos:
@@ -9,7 +24,7 @@ No JavaScript moderno, o uso de `var` foi descontinuado devido ao seu escopo de 
 - `const` Para declarar variáveis cujo valor não será reatribuído (imutabilidade de referência). Deve ser sua escolha padrão.  
 - `let` Para variáveis que precisarão ter seus valores alterados ao longo do tempo. Ambas possuem escopo de bloco.
 
-### Exemplo Prático:
+### Exemplo Prático
 
 ```JavaScript
 // Uso do const (padrão)  
@@ -33,7 +48,7 @@ if (true) {
 
 As *Arrow Functions* fornecem uma sintaxe mais curta para escrever funções. Além da estética, a principal diferença é que elas não possuem seu próprio contexto para o this. O this dentro de uma arrow function é herdado do escopo léxico externo.
 
-### Exemplo Prático:
+Exemplo Prático:
 
 ```JavaScript
 // Função tradicional  
@@ -64,7 +79,7 @@ const usuario = {
 
 A desestruturação permite extrair dados de arrays ou propriedades de objetos em variáveis distintas de forma rápida e elegante.
 
-### Exemplo Prático:
+Exemplo Prático:
 
 ```JavaScript
 // Desestruturação de Objetos  
@@ -78,14 +93,14 @@ const [primeiraCor, segundaCor] = cores;
 console.log(primeiraCor); // "Azul"
 ```
 
-## Operadores Rest e Spread (...)
+## Operadores `Rest` e `Spread` (...)
 
 Apesar de usarem a mesma sintaxe (...), eles funcionam de formas opostas dependendo do contexto:
 
-- **Spread (Espalhar)** Expande um array ou objeto em elementos individuais (útil para clonagem e concatenação).  
-- **Rest (Resto)** Coleta múltiplos elementos e os condensa em um único array (útil em parâmetros de funções).
+- **`Spread` (Espalhar)** Expande um array ou objeto em elementos individuais (útil para clonagem e concatenação).  
+- **`Rest` (Resto)** Coleta múltiplos elementos e os condensa em um único array (útil em parâmetros de funções).
 
-### Exemplo Prático:
+Exemplo Prático:
 
 ```JavaScript
 // Exemplo de Spread (Copiar e mesclar)  
@@ -106,11 +121,11 @@ console.log(somarTodos(1, 2, 3, 4)); // 10
 
 Substituem os antigos loops for na maioria dos casos, promovendo uma abordagem mais funcional e declarativa.
 
-- **map()** Transforma cada elemento de um array e retorna um novo array de mesmo tamanho.  
-- **filter()** Filtra os elementos com base em uma condição, retornando um novo array (pode ser menor).  
-- **reduce()** Reduz o array inteiro a um único valor acumulado (ex: soma, objeto combinado).
+- **`map()`** Transforma cada elemento de um array e retorna um novo array de mesmo tamanho.  
+- **`filter()`** Filtra os elementos com base em uma condição, retornando um novo array (pode ser menor).  
+- **`reduce()`** Reduz o array inteiro a um único valor acumulado (ex: soma, objeto combinado).
 
-### Exemplo Prático:
+Exemplo Prático:
 
 ```JavaScript
 const precos = [10, 20, 30, 40, 50];
@@ -125,11 +140,11 @@ const caros = precos.filter(preco => preco > 25); // [30, 40, 50]
 const total = precos.reduce((acumulador, precoAtual) => acumulador + precoAtual, 0); // 150
 ```
 
-## Programação Assíncrona: Promises e Async/Await
+## Programação Assíncrona: `Promises` e `Async/Await`
 
-Essenciais para lidar com operações que demoram tempo para rodar (como requisições de API). O async/await é uma camada de açúcar sintático sobre as Promises, permitindo escrever código assíncrono que se parece com código síncrono.
+Essenciais para lidar com operações que demoram tempo para rodar (como requisições de API). O `async/await` é uma camada de açúcar sintático sobre as `Promises`, permitindo escrever código assíncrono que se parece com código síncrono.
 
-### Exemplo Prático:
+Exemplo Prático:
 
 ```JavaScript
 // Função simulando uma requisição de API que retorna uma Promise  
@@ -161,7 +176,7 @@ executar();
 
 Permitem dividir seu código em múltiplos arquivos organizados, exportando e importando funções, classes ou variáveis.
 
-### Exemplo Prático:
+Exemplo Prático:
 
 ```JavaScript
 // Arquivo: funcoes.js  
