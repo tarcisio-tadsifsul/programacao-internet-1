@@ -1,0 +1,10 @@
+.botoes{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.botoes .btn{
+    padding: 8px 16px;
+    font-size: 1rem;
+}

@@ -2,10 +2,29 @@
 
 Este documento serve como um guia prático dos principais conceitos introduzidos no ecossistema do JavaScript moderno, essenciais para o desenvolvimento de aplicações robustas, limpas e performáticas.
 
+## Object Models DOM e BOM
+
+No contexto de programação web em JavaScript, o `DOM` representa a estrutura da página HTML em formato de árvore de objetos, enquanto o `BOM` representa o navegador e o ambiente ao redor.
+
+Para entender a diferença exata entre os dois conceitos:
+
+- **DOM (_Document Object Model_)**
+
+  - O que é → o modelo de objeto do documento.
+  - Função → controla e manipula o conteúdo da página HTML (elementos, textos, imagens, formulários, IDs, classes e links).
+  - Objeto raiz → document.Exemplo de uso: Alterar o texto de um parágrafo ou pegar o valor digitado em um input.
+
+- **BOM (_Browser Object Model_)**
+
+  - O que é → É o modelo de objeto do navegador.
+  - Função → Permite que o código JavaScript interaja com a janela do navegador e com o histórico do usuário, sem relação direta com o conteúdo do site.
+  - Objeto raiz → window.
+  - Exemplos de uso → Redirecionar o usuário para outra página (window.location), verificar o histórico (window.history) ou usar alertas (window.alert).
+
 ## Resumo das Convenções de Nomenclatura em JS
 
 - **Camel Case (camelCase)**
-Usado para *variáveis, funções, métodos e propriedades*.
+Usado para _variáveis, funções, métodos e propriedades_.
 A primeira palavra começa com letra minúscula e as seguintes começam com letra maiúscula. (ex: buscarDadosDoUsuario).
 
 - **Pascal Case (PascalCase)**
@@ -58,25 +77,29 @@ O objetivo principal de uma função é a reutilização de código e a modulari
 
 Para escrever funções como um desenvolvedor Sênior, o mercado exige os seguintes padrões:
 
-A. **Princípio da Responsabilidade Única (SRP)**
+#### **Princípio da Responsabilidade Única (SRP)**
+
 Uma função deve fazer apenas uma coisa e fazê-la bem. Se você tem uma função chamada processarUsuario(), e dentro dela ela valida o e-mail, salva no banco e envia um e-mail de boas-vindas, ela está errada. O correto é dividi-la em subfunções menores: validarEmail(), salvarNoBanco() e enviarEmail().
 
-B. **Parâmetros Padrão (Default Parameters)**
+#### **Parâmetros Padrão (Default Parameters)**
+
 Evite que seu código quebre se o usuário esquecer de passar um argumento. Defina valores padrão diretamente nos parâmetros:
 
 ```JavaScript
     const saudar = (nome = "Visitante") => `Olá, ${nome}!`;
 ```
 
-C. **Funções Puras (Pure Functions)**
-Sempre que possível, crie funções que não gerem "efeitos colaterais" (side-effects). Ou seja, dados os mesmos argumentos, a função deve sempre retornar o mesmo resultado, sem alterar variáveis externas ou globais. Isso torna seu código infinitamente mais fácil de testar.
+#### **Funções Puras (Pure Functions)**
 
-D. Nomenclatura Descritiva
+Sempre que possível, crie funções que não gerem "efeitos colaterais" (_side-effects_). Ou seja, dados os mesmos argumentos, a função deve sempre retornar o mesmo resultado, sem alterar variáveis externas ou globais. Isso torna seu código infinitamente mais fácil de testar.
+
+#### **Nomenclatura Descritiva**
+
 Funções representam ações. Portanto, seus nomes devem começar com verbos e ser muito descritivos (usando o padrão camelCase):
 
-❌ Ruim: const dados = (u) => { ... }
+❌ Ruim: `const dados = (u) => { ... }`
 
-Bom: const buscarDadosDoUsuario = (idUsuario) => { ... }
+✅ Bom: `const buscarDadosDoUsuario = (idUsuario) => { ... }`
 
 ---
 
@@ -101,7 +124,7 @@ Embora muitas pessoas usem como sinônimos, há uma diferença técnica conceitu
 
 ### Tipos de Funções
 
-#### Funções Anônimas
+#### ****Funções Anônimas****
 
 Como o próprio nome diz, são funções que não possuem um nome na sua declaração. Elas geralmente são criadas para serem executadas imediatamente ou passadas para algum lugar.
 Como são usadas: Atribuídas a variáveis quando você cria uma Function Expression.
@@ -110,11 +133,11 @@ Como Callbacks: Passadas direto dentro de um método.
 ```JavaScript
     // Uma função anônima guardada em uma constante
     const saudar = function() {
-    console.log("Olá!");
+        console.log("Olá!");
     };
 ```
 
-#### Funções de Callback
+#### **Funções de Callback**
 
 Uma `callback` (função de retorno) não é uma sintaxe nova, mas sim um papel que uma função assume. Trata-se de uma função que é passada como argumento para outra função, para ser executada ("chamada de volta") mais tarde, quando um evento ou uma ação terminar.
 Como é usado de forma profissional: elas são a base do JavaScript assíncrono (como escutar cliques ou buscar dados em servidores).
@@ -122,37 +145,37 @@ Como é usado de forma profissional: elas são a base do JavaScript assíncrono 
 ```JavaScript
     // O segundo argumento é uma função anônima agindo como CALLBACK
     document.querySelector("#meuBotao").addEventListener(
-        "click",
-        () => {console.log("O botão foi clicado!");} // segundo argumento
+        "click", // primeiro argumento, o evento
+        () => {console.log("O botão foi clicado!");} // segundo argumento, callback
     );
 ```
 
-#### IIFE (Immediately Invoked Function Expression)
+#### **IIFE (Immediately Invoked Function Expression)**
 
 São funções anônimas que são criadas e executadas imediatamente no mesmo instante em que o navegador lê o arquivo.
 Objetivo profissional: Antigamente, eram muito usadas para criar escopos isolados e evitar "poluir" o escopo global com variáveis temporárias. Hoje em dia, com o uso de módulos (import/export), caíram um pouco em desuso, mas ainda aparecem em códigos legados ou scripts de inicialização única.
 
 ```JavaScript
     (function() {
-    const configuracaoLocal = "Segredo";
-    console.log("Executei imediatamente e isolei o " + configuracaoLocal);
+        const configuracaoLocal = "Segredo";
+        console.log("Executei imediatamente e isolei o " + configuracaoLocal);
     })(); // Esses parênteses no final forçam a execução imediata
 ```
 
-#### Funções Construtoras (Constructor Functions)
+#### **Funções Construtoras (`Constructor Functions`)**
 
-Antes de existir a palavra-chave class no JavaScript (adicionada no ES6), as funções eram usadas para criar objetos e simular classes. Elas são chamadas usando a palavra-chave new.
+Antes de existir a palavra-chave `class` no JavaScript (adicionada no ES6), as funções eram usadas para criar objetos e simular classes. Elas são chamadas usando a palavra-chave `new`.
 
 ```JavaScript
     function Produto(titulo, preco) {
-    this.titulo = titulo;
-    this.preco = preco;
+        this.titulo = titulo;
+        this.preco = preco;
     }
 
     const novoProduto = new Produto("Teclado", 150);
 ```
 
-#### Funções Geradoras (Generator Functions)
+#### **Funções Geradoras (`Generator Functions`)**
 
 São funções especiais que podem ter sua execução pausada e retomada mais tarde. Elas não retornam um valor único, mas sim um objeto iterador. Elas usam um asterisco (`function*`) e a palavra-chave `yield`.
 
@@ -160,10 +183,10 @@ Objetivo profissional: São excelentes para lidar com fluxos de dados infinitos,
 
 ```JavaScript
     function* geradorDeId() {
-    let id = 1;
-    while(true) {
-        yield id++; // Pausa a função aqui e entrega o valor
-    }
+        let id = 1;
+        while(true) {
+            yield id++; // Pausa a função aqui e entrega o valor
+        }
     }
 
     const criarId = geradorDeId();
@@ -171,17 +194,17 @@ Objetivo profissional: São excelentes para lidar com fluxos de dados infinitos,
     console.log(criarId.next().value); // 2 (a função continuou de onde parou!)
 ```
 
-#### Métodos (`methods`)
+#### **Métodos (`methods`)**
 
 Quando uma função é declarada dentro de um objeto ou de uma classe, ela muda de nome e passa a ser chamada de Método. Foi exatamente o que você fez na sua atividade com o exibirDados()!
 
 ```JavaScript
     const usuario = {
-    nome: "Lucas",
-    // falar() é um método
-    falar() {
-        console.log(`Olá, meu nome é ${this.nome}`);
-    }
+        nome: "Lucas",
+        // falar() é um método
+        falar() {
+            console.log(`Olá, meu nome é ${this.nome}`);
+        }
     };
 ```
 
@@ -196,7 +219,7 @@ A. `Function Declaration` (Declaração Tradicional)
 
 ```JavaScript
     function somar(a, b) {
-    return a + b;
+        return a + b;
     }
 ```
 
@@ -205,7 +228,7 @@ A função é armazenada dentro de uma variável. Não sofre Hoisting completo.
 
 ```JavaScript
     const subtrair = function(a, b) {
-    return a - b;
+        return a - b;
     };
 ```
 
@@ -573,7 +596,7 @@ No JS moderno, a forma padrão e profissional de lidar com eventos é usando o m
 
     // Uso profissional com Arrow Function
     botao.addEventListener("click", () => {
-    console.log("O botão foi clicado!");
+        console.log("O botão foi clicado!");
     });
 ```
 
@@ -583,7 +606,7 @@ No JS moderno, a forma padrão e profissional de lidar com eventos é usando o m
 
 Sempre que um evento acontece, o JavaScript cria automaticamente um **objeto** que contém todos os detalhes sobre o que acabou de ocorrer. Este objeto é passado como o primeiro argumento da sua função de callback (geralmente nomeado apenas como `e` ou `event`).
 
-#### Propriedades mais usadas no dia a dia
+#### **Propriedades mais usadas no dia a dia**
 
 - `e.target`: Revela exatamente **qual elemento** disparou o evento.
 - `e.key`: Em eventos de teclado, diz qual tecla foi pressionada (ex: `"Enter"`, `"Escape"`).
@@ -604,16 +627,16 @@ Sempre que um evento acontece, o JavaScript cria automaticamente um **objeto** q
 
 Podemos dividir os eventos principais em três grandes categorias:
 
-#### Eventos do Navegador (Ciclo de Vida)
+#### **Eventos do Navegador (Ciclo de Vida)**
 
 - `"DOMContentLoaded"`: Disparado quando o HTML foi totalmente lido e o DOM está pronto. É o momento perfeito para rodar o JS sem medo de que algum elemento ainda não exista na tela.
 
-#### Eventos de Mouse e Toque
+#### **Eventos de Mouse e Toque**
 
 - `"click"`: Clique do mouse (ou toque rápido no celular).
 - `"mouseenter"` / `"mouseleave"`: Quando o ponteiro do mouse entra ou sai de cima de um elemento (usado para efeitos visuais).
 
-#### Eventos de Formulário e Teclado
+#### **Eventos de Formulário e Teclado**
 
 - `"submit"`: Disparado quando um formulário é enviado.
 - `"input"`: Disparado em tempo real enquanto o usuário digita em um campo de texto.
@@ -627,7 +650,7 @@ Para escrever códigos prontos para o mercado, os desenvolvedores seniores aplic
 
 ---
 
-#### Delegação de Eventos (Event Delegation)
+#### **Delegação de Eventos (Event Delegation)**
 
 Imagine que você tem uma lista com 1.000 itens e quer que algo aconteça ao clicar em qualquer um deles. Em vez de criar 1.000 `addEventListeners` (o que destruiria a memória do navegador), você coloca **um único ouvinte no elemento pai** da lista.
 
@@ -638,15 +661,15 @@ Graças ao comportamento do JavaScript chamado *Event Bubbling* (onde o evento "
 
     // Um único ouvinte para a lista inteira
     lista.addEventListener("click", (e) => {
-    if (e.target.tagName === "LI") {
-        console.log(`Você clicou no item: ${e.target.innerText}`);
-    }
+        if (e.target.tagName === "LI") {
+            console.log(`Você clicou no item: ${e.target.innerText}`);
+        }
     });
 ```
 
 ---
 
-#### Remover Ouvintes (`removeEventListener`)
+#### **Remover Ouvintes (`removeEventListener`)**
 
 Em aplicações grandes (como as feitas em React, Vue ou Angular), deixar eventos ativos em elementos que sumiram da tela pode causar vazamentos de memória (*memory leaks*). Profissionais usam o `.removeEventListener()` para limpar os ouvintes quando eles não são mais necessários.
 
@@ -654,7 +677,7 @@ Em aplicações grandes (como as feitas em React, Vue ou Angular), deixar evento
 
 ```JavaScript
     function minhaFuncao() {
-    console.log("Clicou!");
+        console.log("Clicou!");
     }
 
     // Adiciona
