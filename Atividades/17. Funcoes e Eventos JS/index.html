@@ -7,12 +7,41 @@
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
 </head>
-<body>
-    <div class="botoes">
+<body class="body">
+    <h1>Atividade JS</h1>
+    <div id="altera-bg">
+        <h2>Altera Cor de Fundo</h2>
         <button class="btn blue">Clique</button>
         <button class="btn green">Click</button>
         <button class="btn red">klicken</button>
         <button class="btn white">haz clic</button>
+    </div>
+    <hr class="separador">
+    <div class="contador">
+        <h2>Contador</h2>
+        <button id="menos" class="btn">-</button>
+        <input type="text" name="mostra-numero" id="mostra-numero">
+        <button id="mais" class="btn">+</button>
+    </div>
+    <hr class="separador">
+    <div id="visilidade-texto">
+        <h2>Visibilidade do Texto</h2>
+        <p id="texto">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <div class="botoes">
+            <button id="esconder" class="btn">Esconder</button>
+            <button id="mostrar" class="btn">Mostrar</button>
+        </div>
+    </div>
+    <hr class="separador">
+    <div id="tecla-pressionada">
+        <h2>Tecla Pressionada!</h2>
+        <input type="text" id="tecla" onkeydown="teclaPressionada(event)">
+    </div>
+    <hr class="separador">
+    <div id="escreve-tela">
+        <h2>Digitacão de Texto</h2>
+        <input type="text" id="caixa-texto" value="">
+        <p id="paragrafo" class="placeholder">Digite o texto no campo acima!</p>
     </div>
 </body>
 </html>

@@ -1,10 +1,51 @@
-.botoes{
-    display: flex;
-    justify-content: space-evenly;
-    padding: 20px;
+.body h1, body h2{
+    font-family: sans-serif
 }
 
-.botoes .btn{
+h1{
+    font-size: 2rem;
+}
+h2{
+    font-size: 1rem;
+}
+
+.separador{
+    margin-block: 36px;
+}
+
+input{
+    padding: 6px;
+}
+
+input:focus{
+    background-color: #66ff000c;
+    outline-color: rgba(0, 116, 29, 0.445);
+}
+
+.btn{
     padding: 8px 16px;
     font-size: 1rem;
+    margin-inline: 6px;
+}
+
+.botoes{
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+.contador > *{
+    padding: 8px;
+    font-size: 1rem;
+}
+
+.contador #mostra-numero{
+    width: 30px;
+    text-align: center;
+}
+
+#escreve-tela .placeholder{
+    font-style: italic;
+    color: gray;
+    font-family: sans-serif;
 }
