@@ -8,11 +8,11 @@
 
 4. [✔] Crie um parágrafo com texto e dois botões: "Mostrar" e "Esconder" que controlem a visibilidade do texto.
 
-5. [] Crie um campo de input de texto e utilize o evento "onkeydown" para exibir uma mensagem de alerta contendo o texto "Você pressionou uma tecla!" sempre que uma tecla for pressionada nesse campo.
+5. [✔] Crie um campo de input de texto e utilize o evento "onkeydown" para exibir uma mensagem de alerta contendo o texto "Você pressionou uma tecla!" sempre que uma tecla for pressionada nesse campo.
 
-6. [] Modifique a atividade anterior para que, ao invés de uma mensagem genérica, a mensagem de alerta exiba qual tecla foi pressionada. [] Utilize a propriedade event.key para isso
+6. [✔] Modifique a atividade anterior para que, ao invés de uma mensagem genérica, a mensagem de alerta exiba qual tecla foi pressionada. Utilize a propriedade event.key para isso
 
-7. [] Utilize um evento de teclado que faça um espelhamento em tempo real do que o usuário digita em um campo de formulário, de modo que a digitação seja exibida em um parágrafo abaixo do campo.
+7. [✔] Utilize um evento de teclado que faça um espelhamento em tempo real do que o usuário digita em um campo de formulário, de modo que a digitação seja exibida em um parágrafo abaixo do campo.
 
 8. [] Utilize um evento de janela que exibe uma mensagem no console toda vez que a janela for redimensionada.
 

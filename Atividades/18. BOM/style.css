@@ -1,0 +1,9 @@
+#formulario {
+    display: grid;
+    gap:1rem
+}
+
+#formulario .campo{
+    display: flex;
+    flex-direction: column;
+}

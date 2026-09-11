@@ -43,5 +43,23 @@
         <input type="text" id="caixa-texto" value="">
         <p id="paragrafo" class="placeholder">Digite o texto no campo acima!</p>
     </div>
+    
+    <hr class="separador">
+    
+    <!-- O Dialog -->
+    <button commandfor="meuModal" command="show-modal">Abrir Modal Nativamente</button>
+    <dialog id="meuModal">
+    <h3>Título do Modal</h3>
+    <p>Estou funcionando 100% sem JavaScript!</p>
+    <button commandfor="meuModal" command="close">Fechar</button>
+    </dialog>
+    
+    <hr class="separador">
+    
+    <!-- Popover -->
+    <button popovertarget="meuMenu">Abrir Menu Flutuante</button>
+    <div popover id="meuMenu">
+    <p>Isso é um Popover nativo em HTML! Clique fora para fechar.</p>
+    </div>
 </body>
 </html>

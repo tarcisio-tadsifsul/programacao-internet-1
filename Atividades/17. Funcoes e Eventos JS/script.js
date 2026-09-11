@@ -115,5 +115,19 @@ function escreveTextoDigitado() {
 
     })
 }
-
 escreveTextoDigitado()
+
+/**
+ * 8. Mostra mensagem no Scroll
+ */
+
+function mensagemScroll(){
+    document.addEventListener('scroll', function (e) {
+        console.log(`
+            ${window.screen}
+            ${window.screenY}
+            ${window.screenTop}
+        `)        
+    })
+}
+mensagemScroll();

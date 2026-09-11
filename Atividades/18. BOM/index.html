@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Browser Object Model</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js" defer></script>
+</head>
+<body>
+    <!-- 
+    [✓] Crie  uma  página  que  logicamente  faça  uso  de  um  pop-up  via elemento dialog.
+    [] Implemente um formulário contendo alguns campos para  entrada  de  dados  que  devem  ser  **salvos  em  um  objeto**  quando pressionado o botão de enviar e posteriormente renderizados na página principal.
+    [] Aplique CSS para estilizar a aplicação.
+    -->
+
+    <!-- Botão para abrir o modal -->
+    <button id="abrirModal">Inserir dados</button>
+
+    <!-- Estrutura do Dialog -->
+    <dialog id="modalFormulario" >
+
+        <!-- Botão para fechar o modal -->
+        <button class="fecharModal">&times;</button>
+        
+        <!-- Titulo modal -->
+        <h2>Formulario de Entrada de Dados</h2>
+        
+        <!-- Formulario -->
+        <form id="formulario">
+            <div class="campo">
+                <label for="usuario">Nome de Usuário</label>
+                <input type="text" name="usuario" id="usuario">
+            </div>
+            <div class="campo">
+                <label for="senha">Senha</label>
+                <input type="password" name="senha" id="senha">
+            </div>
+            <div class="campo">
+                <label for="cpf">CPF</label>
+                <input type="number" name="cpf" id="cpf">
+            </div>
+            <div class="campo">
+                <label for="perfil">Perfil Mídia Social</label>
+                <input type="url" name="perfil" id="perfil">
+            </div>
+            <div class="campo">
+                <label for="categoria-profissioanl">Categoria Profissional</label>
+                <select name="categoria-profissioanl" id="categoria-profissioanl">
+                    <option value="" disabled selected>Selecione...</option>
+                    <option value="servidor-publico">Servidor Público</option>
+                    <option value="comerciario">Comerciário</option>
+                    <option value="industriario">Industriário</option>
+                    <option value="terceiro-setor">Terceiro Setor</option>
+                </select>
+            </div>
+            <div class="campo">
+                <label for="data-nascimento">Data Nascimento</label>
+                <input type="date" name="data-nascimento" id="data-nascimento">
+            </div>
+            <div class="campo">
+                <label for="faixa-valor">Faixa de Valor</label>
+                <input type="range" name="faixa-valor" id="faixa-valor" min="0" value="500" max="10000" step="50">
+                <output id="valor"></output>
+            </div>
+            <div class="campo">
+                <span class="titulo-radio">Preferência de canal de contato:</span>
+                <input type="radio" name="canal-contato" id="telefone" value="telefone">
+                <label for="telefone">Telefone</label>
+                <input type="radio" name="canal-contato" id="whatsapp" value="whatsapp">
+                <label for="whatsapp">WhatsApp</label>
+                <input type="radio" name="canal-contato" id="email" value="email">
+                <label for="email">E-mail</label>
+                <input type="radio" name="canal-contato" id="rede-social" value="rede-social">
+                <label for="rede-social">Direct Rede Social</label>
+            </div>
+            <div class="campo">
+                <input type="checkbox" name="aceite" id="aceite">
+                <label for="aceite">Ao clicar em enviar você aceita nosso termos e condições.</label>
+            </div>
+            <input type="submit" value="Enviar Dados">
+            <button class="fecharModal">Fechar</button>
+        </form>
+
+    </dialog>
+
+</body>
+</html>
