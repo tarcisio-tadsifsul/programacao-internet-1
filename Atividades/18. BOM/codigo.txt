@@ -1,0 +1,226 @@
+# Atividade 18 - BOM
+
+[✓] **Crie  uma  página**  que  logicamente  faça  uso  de  um  pop-up  via elemento dialog.
+
+[] **Implemente um formulário** contendo alguns campos para  entrada  de  dados  
+
+[] **Salve os dados  em  um  objeto** quando pressionado o botão de enviar e posteriormente renderizados na página principal.
+
+[] **Aplique CSS** para estilizar a aplicação.
+
+
+```HTML
+<!doctype html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="icon" type="image/png" href="../logo-ifsul.png" />
+      <title>JavaScript Browser Object Model</title>
+      <link rel="stylesheet" href="./style.css" />
+      <script type="module" src="./main.js" defer></script>
+    </head>
+    <body>
+      <!-- Botão para abrir o modal -->
+      <button id="abrirModal">Inserir dados</button>
+
+      <!-- Estrutura do Dialog -->
+      <dialog id="modalFormulario">
+        <!-- Botão para fechar o modal -->
+        <button class="fecharModal">&times;</button>
+
+        <!-- Titulo modal -->
+        <h2>Formulario de Entrada de Dados</h2>
+
+        <!-- Formulario -->
+        <form id="formulario" method="dialog">
+          <div class="campo">
+            <label for="usuario">Nome de Usuário</label>
+            <input type="text" name="usuario" id="usuario" required />
+          </div>
+          <div class="campo">
+            <label for="telefone">Telefone</label>
+            <input type="tel" name="telefone" id="telefone" />
+          </div>
+          <!-- 
+          <div class="campo">
+            <label for="senha">Senha</label>
+            <input type="password" name="senha" id="senha" required />
+          </div>
+          <div class="campo">
+            <label for="perfil">Link de Perfil na Mídia Social</label>
+            <input type="url" name="perfil" id="perfil" required />
+          </div>
+          <div class="campo">
+            <label for="categoria-profissioanl">Categoria Profissional</label>
+            <select
+              name="categoria-profissioanl"
+              id="categoria-profissioanl"
+              required
+            >
+              <option value="" disabled selected>Selecione...</option>
+              <option value="servidor-publico">Servidor Público</option>
+              <option value="comerciario">Comerciário</option>
+              <option value="industriario">Industriário</option>
+              <option value="terceiro-setor">Terceiro Setor</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="data-nascimento">Data Nascimento</label>
+            <input
+              type="date"
+              name="data-nascimento"
+              id="data-nascimento"
+              required
+            />
+          </div>
+          <div class="campo">
+            <label for="faixa-valor">Faixa de Valor</label>
+            <input
+              type="range"
+              name="faixa-valor"
+              id="faixa-valor"
+              min="0"
+              value="500"
+              max="10000"
+              step="50"
+              required
+            />
+            <output id="valor"></output>
+          </div>
+          <div class="campo">
+            <span class="titulo-radio">Preferência de canal de contato:</span>
+            <input
+              type="radio"
+              name="canal-contato"
+              id="telefone"
+              value="telefone"
+              required
+            />
+            <label for="telefone">Telefone</label>
+            <input
+              type="radio"
+              name="canal-contato"
+              id="whatsapp"
+              value="whatsapp"
+              required
+            />
+            <label for="whatsapp">WhatsApp</label>
+            <input
+              type="radio"
+              name="canal-contato"
+              id="email"
+              value="email"
+              required
+            />
+            <label for="rede-social">Direct Rede Social</label>
+          </div>
+          <div class="campo">
+            <label for="mensagem">Mensagem</label>
+            <textarea name="mensagem" id="mensagem" rows="2" required></textarea>
+          </div>
+          <div class="campo">
+            <input type="checkbox" name="aceite" id="aceite" required />
+            <label for="aceite"
+              >Ao clicar em enviar você aceita nosso termos e condições.</label
+            >
+          </div> -->
+          <input type="submit" value="Enviar Dados" />
+          <input type="reset" value="Limpar Campos" />
+        </form>
+        <button class="fecharModal">Fechar</button>
+      </dialog>
+    </body>
+  </html>
+```
+
+```JavaScript
+import {
+  abrirFecharDialog,
+  mostraFaixaValor,
+  receberDadosForm,
+} from "./utils.js";
+import { DadosUsuario } from "./DadosUsuario.js";
+
+abrirFecharDialog();
+// mostraFaixaValor();
+
+let dadosUsuario = new DadosUsuario(receberDadosForm());
+console.log(dadosUsuario.imprimirDados());
+// Função que controla abertura e fechamento do modal Dialog
+export function abrirFecharDialog() {
+  const dialog = document.getElementById("modalFormulario");
+  const abrirModal = document.getElementById("abrirModal");
+  const fecharModal = document.querySelectorAll(".fecharModal");
+
+  abrirModal.addEventListener("click", function () {
+    if (!dialog.open) {
+      dialog.showModal();
+    } else {
+      alert("O formulario já está aberto!");
+      console.log("O formulario já está aberto!");
+    }
+  });
+
+  fecharModal.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      dialog.close();
+    });
+  });
+}
+```
+
+```JavaScript
+// Função para mostrar o valor do range
+export function mostraFaixaValor() {
+  let faixaValor = document.querySelector("#faixa-valor");
+  let valor = document.querySelector("#valor");
+
+  valor.textContent = faixaValor.value;
+
+  faixaValor.addEventListener("input", function (event) {
+    valor.textContent = event.target.value;
+  });
+}
+```
+
+```JavaScript
+// Função que receber dados e cria objeto
+export function receberDadosForm() {
+  const form = document.querySelector("#formulario");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formDados = new FormData(form);
+    const objForm = Object.fromEntries(formDados);
+    console.log(objForm);
+    return objForm;
+  });
+}
+export class DadosUsuario {
+  // Atributos
+  #usuario;
+  #telefone;
+  #senha;
+  #urlMidiaSocial;
+  #perfil;
+  #categoriaProfissioanl;
+  #dataNascimento;
+  #valorA;
+  #faixaValor;
+  #canalContato;
+  #aceiteTermos;
+
+  // Construtor
+  constructor(objFormDados) {
+    this.#usuario = objFormDados.usuario;
+    this.#telefone = objFormDados.telefone;
+  }
+
+  // Metodo
+  imprimirDados() {
+    return `${this.#usuario} | ${this.#telefone}`;
+  }
+}
+```

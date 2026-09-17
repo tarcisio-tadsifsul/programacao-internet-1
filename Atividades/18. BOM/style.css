@@ -1,9 +1,23 @@
-#formulario {
-    display: grid;
-    gap:1rem
+.dados-enviados {
+  display: flex;
+  flex-direction: column;
+}
+.dados-enviados .infos {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-#formulario .campo{
-    display: flex;
-    flex-direction: column;
+.dados-enviados.oculto {
+  display: none;
+}
+
+#formulario {
+  display: grid;
+  gap: 1rem;
+}
+
+#formulario .campo {
+  display: flex;
+  flex-direction: column;
 }
