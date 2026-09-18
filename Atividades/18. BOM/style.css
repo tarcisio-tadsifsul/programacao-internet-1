@@ -1,3 +1,24 @@
+body *{
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.6rem;
+}
+
+#btnAbrirModal{
+  margin: 20px;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: #6687f3;
+  padding: 0.5rem 1rem;
+  border: 1px solid #395dd4;
+  box-shadow: 0 1px 5px #00000071;
+  border-radius: 0.8rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
 .dados-enviados {
   display: flex;
   flex-direction: column;
@@ -12,12 +33,214 @@
   display: none;
 }
 
+#modalFormulario{ /*dialog*/
+  position: relative;
+  border: 1px solid #eee;
+  border-radius: 0.8rem;
+  max-width: 480px;
+  width: 100%;
+  overflow-x: hidden;
+  padding: 0;
+}
+
+#modalFormulario::backdrop {
+  background-color: rgba(4, 0, 44, 0.5); /* Fundo preto com 70% de opacidade */
+}
+
+dialog::-webkit-scrollbar {
+  width: .8rem;               /* Largura da barra vertical */
+  height: .8rem;              /* Altura da barra horizontal */
+}
+
+dialog::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);       /* Cor do botão arrastável */
+  border-radius: 4px;              /* Bordas arredondadas */
+  border: 2px solid transparent;   /* Cria um espaçamento sutil se combinado com background-clip */
+}
+
+#modalFormulario .topo{
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  background-color: #e2e2e2;
+  color:#949494;
+  font-size: 1.2rem;
+  border-radius: 100%;
+  border:none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  cursor: pointer;
+  transition: all .5s;
+}
+#modalFormulario .topo::after{
+  position: absolute;
+  content:"";
+  width: 10px;
+  height: 1px;
+  background-color: #a0a0a0;
+  transform: rotate(40deg);
+}
+#modalFormulario .topo::before{
+  position: absolute;
+  content:"";
+  width: 10px;
+  height: 1px;
+  background-color: #a0a0a0;
+  transform: rotate(320deg);
+}
+#modalFormulario .topo:hover{  
+  background-color: #c7c7c7;
+}
+
+#modalFormulario .topo:hover::before,
+#modalFormulario .topo:hover::after{
+  background-color:#fff;
+  height: 2px;
+  transform: rotate(0deg);
+}
+
+.conteudo{
+  padding: 2rem;
+}
+
 #formulario {
   display: grid;
-  gap: 1rem;
+  gap: 1.6rem;
+
 }
 
 #formulario .campo {
   display: flex;
   flex-direction: column;
+}
+
+#formulario .campo label{
+  font-size: 1.4rem;
+  color:rgba(0, 0, 0, 0.7)
+}
+
+#formulario .campo label:not([for*="contato"]):after{
+  content:"*";
+  padding-left: .3rem;
+  color: red;
+}
+
+#formulario .campo label:not([for="aceite"]){
+  padding-bottom: 0.6rem;
+}
+#formulario .campo input,
+#formulario .campo select,
+#formulario .campo textarea{
+  padding: .6rem 1.2rem;
+  border-radius: 0.8rem;
+  border: 1px solid #00000030;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+#formulario .campo select option{
+  font-size: 1.4rem;
+}
+
+#formulario .campo fieldset{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #00000030;
+  border-radius: .8rem;
+}
+
+#formulario output::before{
+  content: "R$ ";
+}
+
+#formulario .campo .opcao-canal {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: .8rem;
+}
+
+#formulario .campo .opcao-canal label{
+  padding: 0;
+}
+
+#formulario .campo .opcao-canal input{
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+#formulario .campo.aceite{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  gap: .8rem;
+  
+}
+
+#formulario #aceite{
+  width: 1.4rem;
+  height: 1.4rem;
+  cursor: pointer;
+}
+#formulario [for="aceite"]{
+  font-weight: 300;
+  font-size: 1.4rem;
+}
+
+#formulario #enviar{
+  display: inline-block;
+  width: 100%;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  color: #fff;
+  background-color: #007c30;
+  padding: 0.5rem 1rem;
+  border: 1px solid #00471b;
+  box-shadow: 0 1px 5px #00000071;
+  border-radius: 0.8rem;
+  transition: all .5s;
+  cursor: pointer;
+}
+
+#formulario #enviar:hover{
+  background-color: #00471b;
+}
+
+#formulario #limpar{
+  display: inline-block;
+  width: 100%;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  color: #fff;
+  background-color: #7c5f0063;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.8rem;
+  transition: all .5s;
+  cursor: pointer;
+}
+
+#formulario #limpar:hover{
+  background-color: #7c5f0091;
+}
+
+.base{
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 20px;
+  color:#999;
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-size: 1.2rem;
+  cursor: pointer;
 }

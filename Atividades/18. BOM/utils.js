@@ -1,11 +1,8 @@
 // Função que controla abertura e fechamento do modal Dialog
-export function abrirDialogClique() {
-  const dialog = document.getElementById("modalFormulario");
-  const abrirModal = document.getElementById("abrirModal");
-
-  abrirModal.addEventListener("click", function () {
-    if (!dialog.open) {
-      dialog.showModal();
+export function abrirDialogClique(dialogModal, btnAbrir) {
+  btnAbrir.addEventListener("click", function () {
+    if (!dialogModal.open) {
+      dialogModal.showModal();
     } else {
       alert("O formulario já está aberto!");
       console.log("O formulario já está aberto!");
@@ -13,20 +10,16 @@ export function abrirDialogClique() {
   });
 }
 
-export function fecharDialogClique() {
-  const dialog = document.getElementById("modalFormulario");
-  const fecharModal = document.querySelectorAll(".fecharModal");
-
-  fecharModal.forEach(function (btn) {
+export function fecharDialogClique(dialogModal, btnFechar) {
+  btnFechar.forEach(function (btn) {
     btn.addEventListener("click", function () {
-      dialog.close();
+      dialogModal.close();
     });
   });
 }
 
-export function fecharDialog() {
-  const dialog = document.getElementById("modalFormulario");
-  dialog.close();
+export function fecharDialog(dialogModal) {
+  dialogModal.close();
 }
 
 // Função para mostrar o valor do range
@@ -48,9 +41,9 @@ export function extrairDadosFormulario(form) {
 }
 
 // Função para mostrar div com dados
-export function mostrarDados(dados) {
-  fecharDialog();
-  const dadosEnviados = document.querySelector(".dados-enviados");
+export function mostrarDados(dados, dadosEnviados, dialog) {
+  fecharDialog(dialog);
+  
   dadosEnviados.querySelector(".infos").innerHTML = dados;
   dadosEnviados.classList.remove("oculto");
 

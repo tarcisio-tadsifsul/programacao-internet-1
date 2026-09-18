@@ -5,144 +5,159 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="../logo-ifsul.png" />
     <title>JavaScript Browser Object Model</title>
+    <link rel="stylesheet" href="./reset.css" />
     <link rel="stylesheet" href="./style.css" />
     <script type="module" src="./main.js" defer></script>
   </head>
   <body>
     <!-- Botão para abrir o modal -->
-    <button id="abrirModal">Inserir dados</button>
+    <button open id="btnAbrirModal">Inserir dados</button>
 
     <!-- Estrutura do Dialog -->
     <dialog id="modalFormulario">
-      <!-- Botão para fechar o modal -->
-      <button class="fecharModal">&times;</button>
+      <div class="conteudo">
+        <!-- Botão para fechar o modal -->
+        <span class="btnFecharModal topo"></span>
 
-      <!-- Titulo modal -->
-      <h2>Formulario de Entrada de Dados</h2>
+        <!-- Titulo modal -->
+        <h2>Formulario de Entrada de Dados</h2>
 
-      <!-- Formulario -->
-      <form id="formulario" method="dialog">
-        <div class="campo">
-          <label for="usuario">Nome de Usuário</label>
-          <input
-            type="text"
-            name="usuario"
-            id="usuario"
-            autocomplete="name"
-            required
-          />
-        </div>
-        <div class="campo">
-          <label for="telefone">Telefone</label>
-          <input
-            type="tel"
-            name="telefone"
-            id="telefone"
-            autocomplete="tel"
-            required
-          />
-        </div>
-        <div class="campo">
-          <label for="senha">Senha</label>
-          <input
-            type="password"
-            name="senha"
-            id="senha"
-            autocomplete="new-password"
-            required
-          />
-        </div>
-        <div class="campo">
-          <label for="perfil">@Perfil na Rede Social</label>
-          <input
-            type="text"
-            name="perfil"
-            id="perfil"
-            autocomplete="url"
-            required
-          />
-        </div>
-        <div class="campo">
-          <label for="categoria-profissional">Categoria Profissional</label>
-          <select
-            name="categoria-profissional"
-            id="categoria-profissional"
-            required
-            autocomplete="organization-title"
-          >
-            <option value="" disabled selected>Selecione...</option>
-            <option value="servidor-publico">Servidor Público</option>
-            <option value="comerciario">Comerciário</option>
-            <option value="industriario">Industriário</option>
-            <option value="terceiro-setor">Terceiro Setor</option>
-          </select>
-        </div>
-        <div class="campo">
-          <label for="data-nascimento">Data Nascimento</label>
-          <input
-            type="date"
-            name="data-nascimento"
-            id="data-nascimento"
-            autocomplete="bday"
-            required
-          />
-        </div>
-        <div class="campo">
-          <label for="faixa-valor">Faixa de Valor</label>
-          <input
-            type="range"
-            name="faixa-valor"
-            id="faixa-valor"
-            min="0"
-            value="500"
-            max="10000"
-            step="50"
-            autocomplete="billing"
-            required
-          />
-          <output id="valor"></output>
-        </div>
-        <div class="campo">
-          <span class="titulo-radio">Preferência de canal de contato:</span>
-          <input
-            type="radio"
-            name="canal-contato"
-            id="contato-telefone"
-            value="telefone"
-            required
-          />
-          <label for="contato-telefone">Telefone</label>
-          <input
-            type="radio"
-            name="canal-contato"
-            id="contato-whatsapp"
-            value="whatsapp"
-            required
-          />
-          <label for="contato-whatsapp">WhatsApp</label>
-          <input
-            type="radio"
-            name="canal-contato"
-            id="contato-rede-social"
-            value="direct rede social"
-            required
-          />
-          <label for="contato-rede-social">Direct Rede Social</label>
-        </div>
-        <div class="campo">
-          <label for="mensagem">Mensagem</label>
-          <textarea name="mensagem" id="mensagem" rows="2" required></textarea>
-        </div>
-        <div class="campo">
-          <input type="checkbox" name="aceite" id="aceite" required />
-          <label for="aceite"
-            >Ao clicar em enviar você aceita nosso termos e condições.</label
-          >
-        </div>
-        <input type="submit" value="Enviar Dados" />
-        <input type="reset" value="Limpar Campos" />
-      </form>
-      <button class="fecharModal">Fechar</button>
+        <!-- Formulario -->
+        <form id="formulario" action="#" method="dialog">
+          <div class="campo">
+            <label for="usuario">Nome de Usuário</label>
+            <input
+              type="text"
+              name="usuario"
+              id="usuario"
+              autocomplete="name"
+              required
+            />
+          </div>
+          <div class="campo">
+            <label for="telefone">Telefone</label>
+            <input
+              type="tel"
+              name="telefone"
+              id="telefone"
+              autocomplete="tel"
+              required
+            />
+          </div>
+          <div class="campo">
+            <label for="senha">Senha</label>
+            <input
+              type="password"
+              name="senha"
+              id="senha"
+              minlength="6"
+              maxlength="12"
+              autocomplete="new-password"
+              required
+            />
+          </div>
+          <div class="campo">
+            <label for="perfil">@Perfil na Rede Social</label>
+            <input
+              type="text"
+              name="perfil"
+              id="perfil"
+              autocomplete="url"
+              required
+            />
+          </div>
+          <div class="campo">
+            <label for="categoria-profissional">Categoria Profissional</label>
+            <select
+              name="categoria-profissional"
+              id="categoria-profissional"
+              required
+              autocomplete="organization-title"
+            >
+              <option value="" disabled selected>Selecione...</option>
+              <option value="servidor-publico">Servidor Público</option>
+              <option value="comerciario">Comerciário</option>
+              <option value="industriario">Industriário</option>
+              <option value="terceiro-setor">Terceiro Setor</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="data-nascimento">Data Nascimento</label>
+            <input
+              type="date"
+              name="data-nascimento"
+              id="data-nascimento"
+              autocomplete="bday"
+              required
+            />
+          </div>
+          <div class="campo">
+            <fieldset>
+              <label for="faixa-valor">Faixa de Valor</label>
+            <input
+              type="range"
+              name="faixa-valor"
+              id="faixa-valor"
+              min="0"
+              value="500"
+              max="10000"
+              step="50"
+              autocomplete="billing"
+              required
+            />
+            <output id="valor"></output>
+            </fieldset>
+          </div>
+          <div class="campo canal">
+            <fieldset>
+            <label class="titulo-radio">Preferência de canal de contato:</label>
+            <div class="opcao-canal">
+              <input
+                type="radio"
+                name="canal-contato"
+                id="contato-telefone"
+                value="telefone"
+                required
+              />
+              <label for="contato-telefone">Telefone</label>
+            </div>    
+            <div class="opcao-canal">
+              <input
+                type="radio"
+                name="canal-contato"
+                id="contato-whatsapp"
+                value="whatsapp"
+                required
+              />
+              <label for="contato-whatsapp">WhatsApp</label>
+            </div>      
+            <div class="opcao-canal">
+            <input
+              type="radio"
+              name="canal-contato"
+              id="contato-rede-social"
+              value="direct rede social"
+              required
+            />
+              <label for="contato-rede-social">Direct Rede Social</label>
+          </div>      
+          </div>
+        </fieldset>
+          <!-- <div class="campo">
+            <label for="mensagem">Mensagem</label>
+            <textarea name="mensagem" id="mensagem" rows="2" required></textarea>
+          </div> -->
+          <div class="campo aceite">
+            <input type="checkbox" name="aceite" id="aceite" required />
+            <label for="aceite"
+              >Ao clicar em enviar você aceita nosso termos e condições.</label
+            >
+          </div>
+          <input id="enviar" type="submit" value="Enviar Dados" />
+          <input id="limpar" type="reset" value="Limpar Campos" />
+        </form>
+        <div class="btnFecharModal base">Fechar</div>
+      </div>
     </dialog>
     <div class="dados-enviados oculto">
       <h2>Dados Enviados</h2>
