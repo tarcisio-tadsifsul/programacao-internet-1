@@ -17,7 +17,9 @@ let dados;
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  validarFormulario(form);
+  while (validarFormulario(form)) {
+    validarFormulario(form);
+  }
 
   const objFormDados = fn.extrairDadosFormulario(form);
   dados = new DadosUsuario(objFormDados);

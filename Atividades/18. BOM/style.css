@@ -173,6 +173,10 @@ dialog::-webkit-scrollbar-thumb {
   height: 1.2rem;
 }
 
+#formulario .campo .msg-erro {
+  border: 1px solid #ff0000;
+}
+
 #formulario .campo.aceite{
   display: flex;
   flex-direction: row;

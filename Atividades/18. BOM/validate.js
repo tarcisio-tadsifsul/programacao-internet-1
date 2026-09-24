@@ -1,15 +1,17 @@
 export function validarFormulario(form) {
-  function msgErro(input, tipoErro) {
-    input.classList.toggle("msgErro");
+  function msgErro(input) {
+    input.classList.toggle("msg-erro");
   }
 
   let inputUsuario = form.querySelector("#usuario");
-  function validarNomeUsuario(inputUsuario) {
+  function validarNomeUsuario(input) {
     if (input.value === "") {
-      msgErro(inputUsuario);
+      msgErro(input);
     }
   }
-
-  console.log(form);
-  console.log(inputUsuario);
+  
+  validarNomeUsuario(inputUsuario);
+  
+  // console.log(inputUsuario);
+  // console.log(form);
 }
