@@ -35,10 +35,12 @@ export class DadosUsuario {
   }
 
   formatarDataNascimento() {
-    const dataNasc = new Date(this.#dataNascimento);
-    const dataFormtada = new Intl.DateTimeFormat("pt-BR").format(dataNasc);
-    return dataFormtada;
-    // return dataNasc.toLocaleString("pt-BR");
+    if (this.#dataNascimento) {
+      const dataNasc = new Date(this.#dataNascimento);
+      const dataFormtada = new Intl.DateTimeFormat("pt-BR").format(dataNasc);
+      return dataFormtada;
+    }
+    return;
   }
 
   imprimirDados() {

@@ -43,9 +43,9 @@ export function extrairDadosFormulario(form) {
 // Função para mostrar div com dados
 export function mostrarDados(dados, dadosEnviados, dialog) {
   fecharDialog(dialog);
-  
+
   dadosEnviados.querySelector(".infos").innerHTML = dados;
   dadosEnviados.classList.remove("oculto");
 
-  console.log(dados);
+  // console.log(dados);
 }

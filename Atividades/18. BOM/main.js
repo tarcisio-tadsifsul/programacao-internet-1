@@ -1,7 +1,8 @@
 import * as fn from "./utils.js";
 import { DadosUsuario } from "./DadosUsuario.js";
+import { validarFormulario } from "./validate.js";
 
-const dialog = document.querySelector("#modalFormulario")
+const dialog = document.querySelector("#modalFormulario");
 const form = document.querySelector("#formulario");
 const btnAbrirModal = document.getElementById("btnAbrirModal");
 const btnFecharModal = document.querySelectorAll(".btnFecharModal");
@@ -15,11 +16,16 @@ let dados;
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
+
+  validarFormulario(form);
+
   const objFormDados = fn.extrairDadosFormulario(form);
   dados = new DadosUsuario(objFormDados);
   fn.mostrarDados(dados.imprimirDados(), dadosEnviados, dialog);
 });
 
-dialog.addEventListener("click", function(e){
-  if (e.target === dialog) {fn.fecharDialog(dialog)};
-})
+dialog.addEventListener("click", function (e) {
+  if (e.target === dialog) {
+    fn.fecharDialog(dialog);
+  }
+});
