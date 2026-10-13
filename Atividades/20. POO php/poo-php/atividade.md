@@ -6,6 +6,8 @@ Com base no conteúdo abordado sobre orientação a objetos com php e visando se
 
 - Posteriormente, teste a implementação a partir de um arquivo index, contendo html e estilização básica com css.
 
+------------------------
+
 Ideia 1: Personagens do Jogo (Guerreiro, Mago, Arqueiro) — A mais divertida
 
 • Classe Abstrata: Personagem (ou Heroi)

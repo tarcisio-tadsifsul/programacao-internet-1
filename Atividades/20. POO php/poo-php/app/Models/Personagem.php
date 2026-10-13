@@ -11,10 +11,9 @@ abstract class Personagem
 
   // Construtor com atributos diretos
   public function __construct(
-    protected string $nome,
-    protected int $vida,
-    protected int $mana,
-    protected int $nivel
+    protected string $nome = '',
+    protected int $vida = 0,
+    protected int $nivel = 0
   ) {}
 
   // Modificadores
@@ -34,6 +33,15 @@ abstract class Personagem
     return $this->vida += $itemVida;
   }
 
+  public function mostrarPersonagem(): string
+  {
+    return "
+      Nome: {$this->nome} <br>
+      PV: {$this->vida} <br>
+      Nível: {$this->nivel}
+    ";
+  }
+
   // Método abstrato
-  abstract function atacar(int $vidaInimigo): int;
+  abstract function atacar(int $vidaInimigo): float;
 }

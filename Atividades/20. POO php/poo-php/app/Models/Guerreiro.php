@@ -1,27 +1,40 @@
 <?php
 
-use App\Models\Personagem;
+// Faz o PHP a respeitar os tipos exatos de dados (int, string, etc.)
+declare(strict_types=1);
+
+// Define onde esta classe "vive" no projeto
+namespace App\Models;
+
+require_once 'Personagem.php';
 
 class Guerreiro extends Personagem
 {
-
   public function __construct(
-    string $nome,
-    int $vida,
-    int $mana,
-    int $nivel,
-    private int $forcaFisica,
+    string $nome = '',
+    int $vida = 0,
+    int $nivel = 0,
+    private float $forcaFisica = 0.0
   ) {
-    return parent::__construct($nome, $vida, $mana, $nivel);
+    parent::__construct($nome, $vida, $nivel);
+  }
+
+  public function mostrarPersonagem(): string
+  {
+    $infosBasicas = parent::mostrarPersonagem();
+    return "
+      {$infosBasicas}<br>
+      Força Física: {$this->forcaFisica}
+      <br><br>
+    ";
   }
 
   /**
    * Método atacar
    */
-  public function atacar(int $vidaInimigo): int
+  public function atacar(int $vidaInimigo): float
   {
     $danoFinal = $this->forcaFisica * $this->nivel;
-    $this->forcaFisica = $this->forcaFisica * 0.2;
-    return $danoFinal - $vidaInimigo;
+    return $vidaInimigo - $danoFinal;
   }
 }
