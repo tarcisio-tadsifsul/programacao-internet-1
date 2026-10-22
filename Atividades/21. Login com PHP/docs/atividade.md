@@ -51,7 +51,7 @@
 
   [✓] - Se as credenciais baterem, inicie uma sessão (session_start()), grave uma variável na sessão indicando que o login teve sucesso e use a função header("Location: ...") para enviar o usuário à home.php.
 
-  [] - Se as credenciais estiverem erradas, redirecione o usuário de volta para a página de login.
+  [✓] - Se as credenciais estiverem erradas, redirecione o usuário de volta para a página de login.
 
 ### 7. Proteção da Página Home
 
